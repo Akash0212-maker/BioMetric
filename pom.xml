@@ -13,6 +13,7 @@
 	<artifactId>MetricsServices</artifactId>
 	<version>0.0.1</version>
 	<name>Services-1</name>
+	<packaging>jar</packaging>
 	<description>Services for Biometric</description>
 
 	<properties>
@@ -63,6 +64,7 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<executable>true</executable>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
