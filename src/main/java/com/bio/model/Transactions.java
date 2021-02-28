@@ -46,6 +46,15 @@ public class Transactions {
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Transactions [txnId=" + txnId + ", dvcId=" + dvcId + ", dvcIP="
+				+ dvcIP + ", punchId=" + punchId + ", txnDateTime="
+				+ txnDateTime + ", mode=" + mode + "]";
+	}
 	
 	
 }

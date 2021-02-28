@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bio.model.Request;
 import com.bio.model.Response;
+import com.bio.model.Transactions;
 
 @RestController
 public class CommonController {
@@ -18,8 +19,7 @@ public static Logger _LOGGER = LoggerFactory.getLogger(CommonController.class);
     @PostMapping(value = "/submitDeviceReq")
 	public @ResponseBody Response submitDeviceRequest(@RequestBody Request request) {
 		if(request!=null && request.getDvcSrNo()!=null && request.getDvcTime()!=null){
-			_LOGGER.info("device Sr. No {} ",request.getDvcSrNo());
-			_LOGGER.info("Punch Time {} ",request.getDvcTime());
+			_LOGGER.info("Device Details {} ",request);
 			return new Response(request);
 		}
 		else
@@ -29,11 +29,13 @@ public static Logger _LOGGER = LoggerFactory.getLogger(CommonController.class);
 	
     @PostMapping(value = "/submitTransRequest")
 	public @ResponseBody Response submitTransactionRequest(@RequestBody Request request) {
-		if(request!=null && request.getTrans()!=null && request.getTrans().size()>0){
-			_LOGGER.info("device Sr. No {} ",request.getDvcSrNo());
-			_LOGGER.info("Punch Time {} ",request.getDvcTime());
-			if(request.getTrans().size()>0)
-			_LOGGER.info("Punch Time {} ",request.getTrans().get(0).getMode());
+    	System.out.println("submitTransactionRequest{} "+request);
+    	if(request!=null && request.getTrans()!=null && request.getTrans().size()>0){
+			_LOGGER.info("Device Details {} ",request);
+					
+			for(Transactions transaction:request.getTrans()){
+				_LOGGER.info("Transaction Details {} ",	transaction);
+			}
 			return new Response(request);
 		}
 		else
@@ -43,6 +45,7 @@ public static Logger _LOGGER = LoggerFactory.getLogger(CommonController.class);
     
     @GetMapping(value="/getRequest")
     public @ResponseBody Response getRequest() {
+    	System.out.println("getRequest{} ");
     	return new Response("getRequest->1");
     }
 

@@ -28,8 +28,14 @@ public class Request {
 	public void setDvcTime(String dvcTime) {
 		this.dvcTime = dvcTime;
 	}
-	
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Request [dvcSrNo=" + dvcSrNo + ", dvcTime=" + dvcTime
+				+ ", trans=" + trans + "]";
+	}	
 	
 
 }
