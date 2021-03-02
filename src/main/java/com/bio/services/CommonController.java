@@ -27,7 +27,8 @@ public static Logger _LOGGER = LoggerFactory.getLogger(CommonController.class);
 
 	}
 	
-    @PostMapping(value = "/submitTransRequest")
+    //@PostMapping(value = "/submitTransRequest")
+    @PostMapping(value = "/")
 	public @ResponseBody Response submitTransactionRequest(@RequestBody Request request) {
     	System.out.println("submitTransactionRequest{} "+request);
     	if(request!=null && request.getTrans()!=null && request.getTrans().size()>0){
